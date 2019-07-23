@@ -14,5 +14,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getIP(View view) {
+        new Thread(){
+            @Override
+            public void run() {
+                fetchMyIP();
+            }
+        }.start();
     }
+
+    private void fetchMyIP(){
+        
+    }
+
 }
