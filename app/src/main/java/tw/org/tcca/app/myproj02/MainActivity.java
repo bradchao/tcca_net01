@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.net.NetworkInterface;
+import java.util.Enumeration;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -23,7 +26,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fetchMyIP(){
-        
+        try {
+            Enumeration<NetworkInterface> en =
+                    NetworkInterface.getNetworkInterfaces();
+            while (en.hasMoreElements()){
+                NetworkInterface networkInterface = en.nextElement();
+
+            }
+        }catch (Exception e){
+
+        }
     }
 
 }
