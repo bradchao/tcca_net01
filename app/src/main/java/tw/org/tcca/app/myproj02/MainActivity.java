@@ -7,10 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import java.io.OutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.net.Socket;
 import java.util.Enumeration;
 
 public class MainActivity extends AppCompatActivity {
@@ -78,4 +80,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void sendTCP(View view) {
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    String stringInput = input.getText().toString();
+                    byte[] buf = stringInput.getBytes();
+
+                    Socket socket = new Socket(InetAddress.getByName("10.0.2.2"), 9999);
+                    OutputStream out = socket.getOutputStream();
+                    out.write(buf);
+                    out.flush();
+                    out.close();
+
+                    Log.v("brad", "send OK");
+
+                }catch (Exception e){
+                    Log.v("brad", e.toString());
+                }
+            }
+        }.start();
+
+
+    }
 }

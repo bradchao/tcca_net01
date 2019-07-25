@@ -25,6 +25,12 @@
         android:text="Send UDP"
         android:onClick="sendUDP"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send TCP"
+        android:onClick="sendTCP"
+        />
 
 
 </LinearLayout>
