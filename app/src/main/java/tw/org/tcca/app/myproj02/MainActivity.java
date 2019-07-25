@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     DatagramSocket socket = new DatagramSocket();
                     DatagramPacket packet = new DatagramPacket(
                             buf, buf.length,
-                            InetAddress.getByName("10.0.1.1"),8888
+                            InetAddress.getByName("10.0.2.2"),8888
                     );
                     socket.send(packet);
                     socket.close();
